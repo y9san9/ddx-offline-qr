@@ -75,7 +75,7 @@ import org.ncgroup.kscan.BarcodeFormat
 import org.ncgroup.kscan.BarcodeResult
 import org.ncgroup.kscan.scanImage
 import kotlin.time.Clock
-import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 import kotlin.time.Instant
 
 @Composable
@@ -192,7 +192,7 @@ fun ColumnScope.DDXLink(linkData: DDXLink.Data) {
 
     LaunchedEffect(Unit) {
         while (true) {
-            delay(500.milliseconds)
+            delay(5.seconds)
             val instant = Clock.System.now()
             link = DDXLink.at(linkData, instant)
         }
