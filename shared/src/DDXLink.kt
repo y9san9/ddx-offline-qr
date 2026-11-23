@@ -28,7 +28,7 @@ object DDXLink {
         val seconds = instant.epochSeconds.toInt()
         val secondsBytes = seconds.reinterpretAsByteArrayBigEndian()
         val secondsBase64 = Base64.encode(secondsBytes)
-        return "DDX_${data.userId}_${data.magicHash}_$secondsBase64"
+        return "DD2_${data.userId}_${data.magicHash}_$secondsBase64"
     }
 
     fun Int.reinterpretAsByteArrayBigEndian(): ByteArray = ByteArray(4) { i ->
