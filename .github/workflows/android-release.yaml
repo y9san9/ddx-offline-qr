@@ -1,0 +1,31 @@
+name: android-release
+
+on:
+    push:
+        branches: [main]
+
+permissions:
+    contents: write
+
+
+jobs:
+    apk:
+        runs-on: ubuntu-latest
+        env:
+            KOTLIN_CLI_NO_WELCOME_BANNER: "1"
+        steps:
+            - uses: actions/checkout@v7
+            - run: ./kotlin build -m androidApp --variant release
+            - run: echo "APK=$(find build -name '*.apk' | head -n 1)" >> $GITHUB_ENV
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: app
+                  path: ${{ env.APK }}
+            - uses: softprops/action-gh-release@v3
+              with:
+                  files: ${{ env.APK }}
+                  tag_name: build-${{ github.run_number }}
+                  target_commitish: ${{ github.sha }}
+                  prerelease: true
+
+

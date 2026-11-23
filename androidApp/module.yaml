@@ -1,0 +1,17 @@
+product: android/app
+
+dependencies:
+  - //shared
+  - $libs.androidx.activity.compose
+  - $compose.preview
+  - $compose.uiTooling
+
+settings:
+  compose:
+    enabled: true
+  android:
+    applicationId: me.y9san9.ddxofflineqr
+    namespace: me.y9san9.ddxofflineqr
+    signing: enabled
+    versionCode: 1
+    versionName: "0.0.1"

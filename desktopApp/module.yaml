@@ -1,0 +1,17 @@
+product: jvm/app
+
+dependencies:
+  - //shared
+  - $compose.desktop.currentOs
+  - $compose.preview
+  - $compose.material3
+  - $libs.kotlinx.coroutines.swing
+  - $libs.logback.classic
+
+settings:
+  compose:
+    enabled: true
+  jvm:
+    mainClass: me.y9san9.ddxofflineqr.MainKt
+    jdk:
+      version: 17
