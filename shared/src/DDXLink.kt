@@ -25,7 +25,7 @@ object DDXLink {
     }
 
     fun at(data: Data, instant: Instant): String {
-        val seconds = instant.epochSeconds.toInt() / 5 * 5
+        val seconds = instant.epochSeconds.toInt()
         val secondsBytes = seconds.reinterpretAsByteArrayBigEndian()
         val secondsBase64 = Base64.encode(secondsBytes)
         return "DD2_${data.userId}_${data.magicHash}_$secondsBase64"
