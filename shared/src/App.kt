@@ -45,6 +45,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.github.alexzhirkevich.qrose.options.QrBallShape
+import io.github.alexzhirkevich.qrose.options.QrErrorCorrectionLevel
 import io.github.alexzhirkevich.qrose.options.QrBrush
 import io.github.alexzhirkevich.qrose.options.QrFrameShape
 import io.github.alexzhirkevich.qrose.options.QrLogoShape
@@ -188,6 +189,7 @@ fun ColumnScope.DDXLink(linkData: DDXLink.Data) {
         darkBrush = QrBrush.solid(LocalContentColor.current),
         ballBrush = QrBrush.solid(LocalContentColor.current),
         frameBrush = QrBrush.solid(LocalContentColor.current),
+        errorCorrectionLevel = QrErrorCorrectionLevel.Low,
     )
 
     LaunchedEffect(Unit) {
