@@ -191,10 +191,17 @@ fun ColumnScope.DDXLink(linkData: DDXLink.Data) {
     )
 
     LaunchedEffect(Unit) {
-        while (true) {
-            delay(5.seconds)
+        var lastMultipleOfFive = run {
             val instant = Clock.System.now()
-            link = DDXLink.at(linkData, instant)
+            instant.epochSeconds / 5 * 5
+        }
+        while (true) {
+            lastMultipleOfFive += 5
+            val instant = Clock.System.now()
+            val delay = lastMultipleOfFive - instant.epochSeconds
+            if (delay <= 0) continue
+            delay(delay.seconds)
+            link = DDXLink.at(linkData, Clock.System.now())
         }
     }
 
